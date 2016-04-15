@@ -8,6 +8,11 @@ defmodule Rexdit.Fetcher do
     |> handle_response(subreddit)
   end
 
+  def fetch_data!(subreddit) do
+    {:ok, posts} = fetch_data(subreddit)
+    posts
+  end
+
   defp build_url(subreddit) do
     "https://www.reddit.com/r/#{subreddit}/new.json?sort=new&limit=1"
   end
@@ -20,14 +25,14 @@ defmodule Rexdit.Fetcher do
 
   defp handle_response({:error, reason}, _subreddit) do
     IO.inspect reason
+    {:error, 400}
   end
 
-  defp handle_decode(%{"error" => 404}, subreddit) do
-    IO.puts "Error: subreddit <#{subreddit}> not found!"
-    []
+  defp handle_decode(%{"error" => 404}, _subreddit) do
+    {:error, 404}
   end
 
   defp handle_decode(data, _subreddit) do
-    Mapper.map_posts(data)
+    {:ok, Mapper.map_posts(data)}
   end
 end
