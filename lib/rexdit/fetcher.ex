@@ -3,6 +3,10 @@ defmodule Rexdit.Fetcher do
 
   @type error :: 400 | 404
 
+  @doc """
+  Given a subreddit it tries to fetch the newest post
+  and returns {:ok, post} or {:error, error_code}
+  """
   @spec fetch_data(String.t) :: {:ok, [Rexdit.Post.t]} | {:error, error}
   def fetch_data(subreddit) do
     subreddit
@@ -11,6 +15,10 @@ defmodule Rexdit.Fetcher do
     |> handle_response(subreddit)
   end
 
+  @doc """
+  Same as fetch_data, but it returns directly the post
+  If an error happens, then it raises an error
+  """
   @spec fetch_data(String.t) :: {:ok, [Rexdit.Post.t]}
   def fetch_data!(subreddit) do
     {:ok, posts} = fetch_data(subreddit)

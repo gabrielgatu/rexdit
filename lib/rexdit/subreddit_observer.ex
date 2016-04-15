@@ -1,7 +1,11 @@
 defmodule Rexdit.SubredditObserver do
 
-  @time_to_sleep 5_000
+  # Checks for new posts every 5 minutes
+  @time_to_sleep 5 * 60 * 1_000
 
+  @doc """
+  Starts observing a subreddit for new posts
+  """
   def observe(subreddit) do
     pid = spawn fn -> init(subreddit) end
   end

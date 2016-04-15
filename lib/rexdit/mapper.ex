@@ -1,6 +1,11 @@
 defmodule Rexdit.Mapper do
   alias Rexdit.Post
 
+  @doc """
+  Given a data block, result from a httpoison call,
+  it parses the content and returns an array contaning
+  the posts, on an empty one.
+  """
   @spec map_posts(map()) :: [Rexdit.Post.t]
   def map_posts(data) do
     data
