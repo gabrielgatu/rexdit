@@ -7,7 +7,7 @@ waiting for new posts. Then, it shows a notification to the user.
 
 ### Why you developed this?
 
-Just for fun, and practice. Any improvement is welcome :)
+Just for fun, and practice. Any improvement or suggestion is welcome :)
 
 ### Supported O.S.
 
