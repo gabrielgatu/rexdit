@@ -1,6 +1,7 @@
 defmodule Rexdit.Mapper do
   alias Rexdit.Post
 
+  @spec map_posts(map()) :: [Rexdit.Post.t]
   def map_posts(data) do
     data
     |> Map.get("data")

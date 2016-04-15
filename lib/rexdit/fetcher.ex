@@ -1,6 +1,9 @@
 defmodule Rexdit.Fetcher do
   alias Rexdit.Mapper
 
+  @type error :: 400 | 404
+
+  @spec fetch_data(String.t) :: {:ok, [Rexdit.Post.t]} | {:error, error}
   def fetch_data(subreddit) do
     subreddit
     |> build_url
@@ -8,6 +11,7 @@ defmodule Rexdit.Fetcher do
     |> handle_response(subreddit)
   end
 
+  @spec fetch_data(String.t) :: {:ok, [Rexdit.Post.t]}
   def fetch_data!(subreddit) do
     {:ok, posts} = fetch_data(subreddit)
     posts

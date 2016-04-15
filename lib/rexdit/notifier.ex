@@ -1,6 +1,7 @@
 defmodule Rexdit.Notifier do
   alias Rexdit.Post
 
+  @spec notify(Rexdit.Post.t) :: none()
   def notify(%Post{title: title, author: author, subreddit: subreddit, domain: domain}) do
     subreddit = String.capitalize(subreddit)
 
