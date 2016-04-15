@@ -9,9 +9,7 @@ defmodule Rexdit do
     ]
     opts = [strategy: :one_for_one, name: __MODULE__]
 
-    resp = Supervisor.start_link(children, opts)
-    run()
-    resp
+    Supervisor.start_link(children, opts)
   end
 
   def run do
