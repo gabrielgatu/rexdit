@@ -1,20 +1,35 @@
-# Rexdit
+# Rexdit Observer (Reddit meets Elixir)
 
-**TODO: Add description**
+### Summary
 
-## Installation
+Rexdit is a small hobby project developed in elixir. It observes  subreddits
+waiting for new posts. Then, it shows a notification to the user.
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
+### Why you developed this?
 
-  1. Add rexdit to your list of dependencies in `mix.exs`:
+Just for fun, and practice. Any improvement is welcome :)
 
-        def deps do
-          [{:rexdit, "~> 0.0.1"}]
-        end
+### Supported O.S.
 
-  2. Ensure rexdit is started before your application:
+Currently, only Mac is supported, because the notification system uses
+applescript. If you want to implement support for other os, you are the
+welcome ;)
 
-        def application do
-          [applications: [:rexdit]]
-        end
+### How to run
 
+To set the subreddits to observe, set an enviroment variable called `REXDIT`
+with the subreddit names, divided by pipes.
+If the variable is not set, as default it observes `elixir`.
+
+Example: `export REXDIT="elixir|golang|swift"`
+
+You can start the application with:
+
+* `iex -S mix`
+
+* `Rexdit.run`
+
+### Extending & Supporting
+
+If you have a proposal for extending the current behaviours, just open an
+issue :)
