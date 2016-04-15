@@ -1,5 +1,7 @@
 # Rexdit Observer (Reddit meets Elixir)
 
+![Image of a Rexdit notification](notification.png)
+
 ### Summary
 
 Rexdit is a small hobby project developed in elixir. It observes  subreddits
