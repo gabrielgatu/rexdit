@@ -24,6 +24,7 @@ defmodule Rexdit.Fetcher do
 
   defp handle_decode(%{"error" => 404}, subreddit) do
     IO.puts "Error: subreddit <#{subreddit}> not found!"
+    []
   end
 
   defp handle_decode(data, _subreddit) do

@@ -15,8 +15,17 @@ defmodule Rexdit do
   end
 
   def run do
-    Rexdit.SubredditObserver.observe("all")
-    Rexdit.SubredditObserver.observe("funny")
-    Rexdit.SubredditObserver.observe("news")
+    System.get_env("REXDIT")
+    |> extract_subreddits
+    |> Enum.each(&Rexdit.SubredditObserver.observe/1)
+  end
+
+  defp extract_subreddits(nil) do
+    ["elixir"]
+  end
+
+  defp extract_subreddits(subreddits_string) do
+    subreddits_string
+    |> String.split("|")
   end
 end

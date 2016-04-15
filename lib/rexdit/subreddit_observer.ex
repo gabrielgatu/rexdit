@@ -3,10 +3,10 @@ defmodule Rexdit.SubredditObserver do
   @time_to_sleep 5_000
 
   def observe(subreddit) do
-    spawn(__MODULE__, :init, [subreddit])
+    spawn fn -> init(subreddit) end
   end
 
-  def init(subreddit) do
+  defp init(subreddit) do
     subreddit
     |> Rexdit.Fetcher.fetch_data
     |> Rexdit.Storage.store_in(subreddit)
