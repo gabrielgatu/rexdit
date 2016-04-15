@@ -2,7 +2,7 @@ defmodule Rexdit.Notifier do
   alias Rexdit.Post
 
   @doc """
-  Show a notification for a passed post
+  Show a notification for a post
   """
   @spec notify(Rexdit.Post.t) :: none()
   def notify(%Post{title: title, author: author, subreddit: subreddit, domain: domain}) do
@@ -11,7 +11,6 @@ defmodule Rexdit.Notifier do
     notif_title = title
     notif_content = "|#{subreddit}| By #{author}, on #{domain}"
 
-    IO.puts "Notification for: #{title}"
     show_notification(notif_title, notif_content)
   end
 

@@ -5,7 +5,6 @@ defmodule Rexdit.Fetcher do
 
   @doc """
   Given a subreddit it tries to fetch the newest post
-  and returns {:ok, post} or {:error, error_code}
   """
   @spec fetch_data(String.t) :: {:ok, [Rexdit.Post.t]} | {:error, error}
   def fetch_data(subreddit) do
